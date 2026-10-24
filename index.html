@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Clipword: Vocab Flashcards</title>
+  <meta name="description" content="Clipword turns words you meet on your phone into flashcards, with the sentence they came from. Android app for language learners. Join the waitlist.">
+  <meta name="theme-color" content="#F6F3EC" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#161512" media="(prefers-color-scheme: dark)">
+  <meta property="og:title" content="Clipword: Vocab Flashcards">
+  <meta property="og:description" content="The easiest way to turn words you meet into flashcards, with the sentence they came from.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/figtree.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="top">
+    <div class="wrap top-inner">
+      <a class="brand" href="./" aria-label="Clipword home">
+        <img src="assets/icon.svg" alt="" width="28" height="28">
+        <span>Clipword</span>
+      </a>
+      <a class="top-link" href="#join">Join the waitlist</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">For Android · coming soon</p>
+          <h1>Turn words you meet into flashcards, <span class="mark">with the sentence</span> they came from.</h1>
+          <p class="lede">Reading an article, a chat or a subtitle and hit a word you don't know? Save it in two taps. Clipword fills in the dictionary entry, explains the word in that sentence, and brings it back for review right before you'd forget it.</p>
+
+          <form id="join" class="signup" novalidate>
+            <label class="field-label" for="email">Get an invite to the first test</label>
+            <div class="signup-row">
+              <input id="email" name="email" type="email" inputmode="email" autocomplete="email" placeholder="you@example.com" required maxlength="254">
+              <button type="submit" class="btn">Join the waitlist</button>
+            </div>
+
+            <fieldset class="langs">
+              <legend>I'm learning <span class="muted">(optional)</span></legend>
+              <label class="chip"><input type="checkbox" name="lang" value="de"><span>German</span></label>
+              <label class="chip"><input type="checkbox" name="lang" value="ja"><span>Japanese</span></label>
+              <label class="chip"><input type="checkbox" name="lang" value="fr"><span>French</span></label>
+              <label class="chip"><input type="checkbox" name="lang" value="es"><span>Spanish</span></label>
+              <label class="chip"><input type="checkbox" name="lang" value="ko"><span>Korean</span></label>
+              <label class="chip"><input type="checkbox" name="lang" value="other"><span>Something else</span></label>
+            </fieldset>
+
+            <!-- Honeypot: people never see this field; bots fill it in. -->
+            <div class="hp" aria-hidden="true">
+              <label for="website">Leave this empty</label>
+              <input id="website" name="website" type="text" tabindex="-1" autocomplete="off">
+            </div>
+
+            <p class="form-note">One email when the test opens, one at launch. Nothing else. <a href="privacy.html">Privacy</a></p>
+            <p class="form-status" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+
+        <!-- Phone mock-up: the capture sheet over another app -->
+        <div class="hero-art" aria-hidden="true">
+          <div class="phone">
+            <div class="phone-screen">
+              <div class="source-app">
+                <div class="src-bar"></div>
+                <p class="src-text">Wir sind am Wochenende ins Gebirge <span class="src-sel">gefahren</span>. Am Samstag war es sonnig, aber kalt.</p>
+                <div class="src-line w90"></div>
+                <div class="src-line w70"></div>
+                <div class="src-line w80"></div>
+              </div>
+              <div class="sheet">
+                <div class="sheet-handle"></div>
+                <p class="sheet-hint">Tap the word to save</p>
+                <div class="tokens">
+                  <span>Wir</span><span>sind</span><span>am</span><span>Wochenende</span><span>ins</span><span>Gebirge</span><span class="on">gefahren</span>
+                </div>
+                <div class="mini-card">
+                  <div class="mini-head">
+                    <strong>fahren</strong>
+                    <span class="tag">verb</span>
+                  </div>
+                  <p class="mini-meaning">to travel, go (by vehicle)</p>
+                  <p class="mini-note"><span class="ai">AI note</span> Past tense with <em>sein</em>: sind … gefahren.</p>
+                </div>
+                <div class="sheet-btn">Save</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How it works -->
+    <section class="section">
+      <div class="wrap">
+        <h2>How it works</h2>
+        <ol class="steps">
+          <li class="step">
+            <span class="step-num">1</span>
+            <h3>Select</h3>
+            <p>Select the sentence in your browser or email app and tap <strong>Save to Clipword</strong>. In apps without that option, copy it: Clipword offers what you copied the next time you open it.</p>
+          </li>
+          <li class="step">
+            <span class="step-num">2</span>
+            <h3>Tap the word</h3>
+            <p>A sheet slides up over the app you're in. Tap the word you didn't know. The whole sentence is kept with it.</p>
+          </li>
+          <li class="step">
+            <span class="step-num">3</span>
+            <h3>Review later</h3>
+            <p>A few minutes a day: see the word in its sentence, tap <strong>Forgot</strong> or <strong>Got it</strong>. Clipword works out when to show it next.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section class="section alt">
+      <div class="wrap">
+        <h2>Small app, the parts that matter</h2>
+        <div class="features">
+          <article class="feature">
+            <h3>Your sentence stays on the card</h3>
+            <p>You remember words better in the place you met them. Every card shows its sentence with the word highlighted.</p>
+          </article>
+          <article class="feature">
+            <h3>Dictionary first, AI second</h3>
+            <p>Gender, plural, reading and dictionary form come from an offline dictionary. AI explains what the word means <em>in your sentence</em>, and you can edit anything.</p>
+          </article>
+          <article class="feature">
+            <h3>Works offline</h3>
+            <p>Saving, looking up and reviewing words all work without a connection. Explanations fill in when you're back online.</p>
+          </article>
+          <article class="feature">
+            <h3>Two buttons, smart timing</h3>
+            <p>No "hard/easy" guessing. A modern spaced-repetition scheduler (FSRS) picks the right day for each word, and daily limits keep the pile small.</p>
+          </article>
+          <article class="feature">
+            <h3>Your words live on your phone</h3>
+            <p>No account to make. Back up any time, or export to an Anki-ready file. Your cards are yours.</p>
+          </article>
+          <article class="feature">
+            <h3>Hear it</h3>
+            <p>Tap to hear a word read aloud, German nouns with their article, using your phone's own voices.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Languages -->
+    <section class="section">
+      <div class="wrap">
+        <h2>Languages at launch</h2>
+        <p class="section-lede">Explanations and the app itself are in English.</p>
+        <div class="lang-grid">
+          <div class="lang">
+            <span class="lang-word" lang="de">Wort</span>
+            <strong>German</strong>
+            <span class="muted">Full dictionary: article, plural, inflected forms</span>
+          </div>
+          <div class="lang">
+            <span class="lang-word" lang="ja">言葉</span>
+            <strong>Japanese</strong>
+            <span class="muted">Full dictionary: readings, conjugated forms</span>
+          </div>
+          <div class="lang">
+            <span class="lang-word" lang="fr">mot</span>
+            <strong>French <span class="beta">beta</span></strong>
+            <span class="muted">Basic lookup + AI explanations</span>
+          </div>
+          <div class="lang">
+            <span class="lang-word" lang="es">palabra</span>
+            <strong>Spanish <span class="beta">beta</span></strong>
+            <span class="muted">Basic lookup + AI explanations</span>
+          </div>
+          <div class="lang">
+            <span class="lang-word" lang="ko">단어</span>
+            <strong>Korean <span class="beta">beta</span></strong>
+            <span class="muted">AI explanations, light lookup</span>
+          </div>
+        </div>
+        <p class="section-foot muted">Each language also comes with an optional starter deck, so you're not starting from an empty list.</p>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section alt">
+      <div class="wrap narrow">
+        <h2>Questions</h2>
+        <details>
+          <summary>When can I try it?</summary>
+          <p>A closed test on Google Play comes first. People on the waitlist get the invite. There's no fixed date yet; it's a small, careful build.</p>
+        </details>
+        <details>
+          <summary>Is it free?</summary>
+          <p>Saving your own words, reviewing them and exporting them will always be free. AI explanations and extras may become part of a paid plan later.</p>
+        </details>
+        <details>
+          <summary>What about iPhone?</summary>
+          <p>Android only for now. The "select text → save" step is built on an Android feature, so that's where Clipword starts.</p>
+        </details>
+        <details>
+          <summary>Does it work in every app?</summary>
+          <p>The <strong>Save to Clipword</strong> option shows up when you select text in browsers like Chrome and in many email and reading apps. Some apps (WhatsApp, Instagram, YouTube, most PDF viewers) only allow copying. There, copy the text and open Clipword; it offers what you copied as a card.</p>
+        </details>
+        <details>
+          <summary>Do I need an account?</summary>
+          <p>No. Your cards stay on your phone. Only the word and its sentence are sent when you ask for an AI explanation, and they aren't stored.</p>
+        </details>
+        <details>
+          <summary>What happens to my email?</summary>
+          <p>It's used only to invite you to the test and tell you when the app launches. Never shared, never sold. Details on the <a href="privacy.html">privacy page</a>.</p>
+        </details>
+      </div>
+    </section>
+
+    <!-- Final call to action -->
+    <section class="section cta">
+      <div class="wrap narrow center">
+        <h2>Collect the words you actually meet.</h2>
+        <p class="section-lede">Join the waitlist and be one of the first testers.</p>
+        <a class="btn" href="#join">Join the waitlist</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <div class="wrap foot-inner">
+      <span>© 2026 Clipword</span>
+      <a href="privacy.html">Privacy</a>
+    </div>
+  </footer>
+
+  <script src="site.js" defer></script>
+</body>
+</html>
