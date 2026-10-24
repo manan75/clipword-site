@@ -1,6 +1,6 @@
 // Waitlist form: posts to the Google Apps Script web app in apps-script/Code.gs,
 // which appends a row to the sign-up Sheet. Paste the deployment URL here (README, step 3).
-const SIGNUP_URL = "";
+const SIGNUP_URL = "https://script.google.com/macros/s/AKfycbzQEHAuQeaaFjRtaRHEqajaZZzVaYC3nqJ-BWQA-mnXadwcJxGz70H8elF2xJDFBEUIcw/exec";
 
 (function () {
   const form = document.getElementById("join");
@@ -54,12 +54,14 @@ const SIGNUP_URL = "";
       const result = await response.json();
       if (result.ok) {
         form.querySelectorAll("input, button").forEach((el) => (el.disabled = true));
-        show(result.already
-          ? "You're already on the list. We'll be in touch."
-          : "You're on the list! We'll email you when the test opens.", "ok");
+        show("You're on the list! We'll email you when the test opens.", "ok");
         return;
       }
-      show(result.error === "email" ? "Please enter a valid email address." : "Something went wrong. Please try again.", "err");
+      const messages = {
+        email: "Please enter a valid email address.",
+        busy: "Lots of sign-ups right now. Please try again in an hour.",
+      };
+      show(messages[result.error] || "Something went wrong. Please try again.", "err");
     } catch (error) {
       show("Couldn't reach the server. Check your connection and try again.", "err");
     }

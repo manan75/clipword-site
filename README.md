@@ -39,10 +39,9 @@ If you change `Code.gs` later: Deploy → Manage deployments → edit (pencil) �
 
 Add `?ref=<name>` to links you share, e.g. `https://manan75.github.io/clipword-site/?ref=linkedin`. The value lands in the Sheet's *Source* column.
 
-## Before sharing the page
+## Abuse limits
 
-- [ ] Replace `CONTACT_EMAIL` in `privacy.html` (twice) with the address people can write to for removal.
-- [ ] Sign-ups set up (steps above).
+The web app URL is public by design (the browser has to call it). It can only append a row; it can't read the Sheet. `Code.gs` rejects invalid emails, drops bot submissions (hidden `website` field), skips duplicates with the same reply as a new sign-up (so nobody can check whether an address is listed), and stops after `MAX_PER_HOUR` new rows per hour. If junk still gets in: delete the rows, then Deploy → New deployment for a fresh URL and update `site.js`.
 
 ## Content rules (from the app repo)
 

@@ -8,6 +8,7 @@ const SHEET_NAME = 'Signups';
 const HEADER = ['Signed up', 'Email', 'Languages', 'Source'];
 const LANGUAGES = ['de', 'ja', 'fr', 'es', 'ko', 'other'];
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const MAX_PER_HOUR = 100; // new rows per clock hour; stops a flood of fake sign-ups
 
 function doPost(e) {
   const p = (e && e.parameter) || {};
@@ -31,10 +32,19 @@ function doPost(e) {
     const last = sheet.getLastRow();
     if (last > 1) {
       const known = sheet.getRange(2, 2, last - 1, 1).getValues().map((row) => String(row[0]).replace(/^'/, ''));
-      if (known.indexOf(email) !== -1) return reply({ ok: true, already: true });
+      // Same reply as a new sign-up, so nobody can test whether an address is on the list.
+      if (known.indexOf(email) !== -1) return reply({ ok: true });
     }
+
+    // Best effort: the cache can forget early, which only loosens the cap.
+    const cache = CacheService.getScriptCache();
+    const hourKey = 'signups-' + Math.floor(Date.now() / 3600000);
+    const thisHour = Number(cache.get(hourKey) || 0);
+    if (thisHour >= MAX_PER_HOUR) return reply({ ok: false, error: 'busy' });
+
     // A leading ' stops Sheets from treating text that starts with = + - @ as a formula.
     sheet.appendRow([new Date(), safeCell(email), languages.join(', '), safeCell(source)]);
+    cache.put(hourKey, String(thisHour + 1), 3600);
     return reply({ ok: true });
   } finally {
     lock.releaseLock();
